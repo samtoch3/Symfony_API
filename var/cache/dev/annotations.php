@@ -644,7 +644,7 @@ return [[
 ], [
 
 0 => [],
-1 => 1634943391,
+1 => 1634980519,
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
@@ -673,7 +673,7 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'name' => [
-                    '/api_posts_collection_get',
+                    'api_posts_collection_get',
                 ],
                 'methods' => [
                     [
