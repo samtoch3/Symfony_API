@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\PostRepository;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -23,7 +24,10 @@ class PostController
     public function collection(PostRepository $postRepository, SerializerInterface $serializer): JsonResponse
     {
         return new JsonResponse(
-            $postRepository->findAll()
+            $serializer->serialize($postRepository->findAll(), "json"),
+            JsonResponse::HTTP_OK,
+            [],
+            true
         );
     }
 

@@ -2,8 +2,10 @@
 
 namespace App\Repository;
 
+use App\Entity\Post;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Controller\PostController;
 
 /**
  * Class PostRepository
