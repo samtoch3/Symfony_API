@@ -1,0 +1,165 @@
+<?php
+
+namespace App\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+/**
+ * Class Post
+ * @package App\Entity
+ * @ORM\Entity
+ */
+class Post
+{
+    /**
+     * @var int|null
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
+     */
+    private ?int $id;
+
+    /**
+     * @var string
+     * @ORM\Column(type="text")
+     */
+    private string $content;
+
+    /**
+     * @var \DateTimeInterface
+     * @ORM\Column(type="datetime_immutable")
+     */
+    private \DateTimeInterface $publishedAt;
+
+    /**
+     * @var User
+     * @ORM\ManyToOne(targetEntity="User")
+     */
+    private User $author;
+
+    /**
+     * @var Users[]|Collection
+     * @ORM\ManyToMany(targetEntity="User")
+     * @ORM\JoinTable(name="post_likes")
+     */
+    private Collection $likedBy; //ou usersWhoLiked ou likers pour les users qui ont liké la publication
+
+    /**
+     * @param string $content
+     * @param User $author
+     * @return static
+     */
+    public static function create(string $content, User $author): self
+    {
+        $post = new self();
+        $post->content = $content;
+        $post->author = $author;
+
+        return $post;
+    }
+
+
+    /**
+     * Post constructor.
+     */
+    public function __construct()
+    {
+        $this->publishedAt = new \DateTimeImmutable();
+        $this->likedBy = new ArrayCollection();
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContent(): string
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param string $content
+     */
+    public function setContent(string $content): void
+    {
+        $this->content = $content;
+    }
+
+    /**
+     * @return \DateTimeInterface
+     */
+    public function getPublishedAt(): \DateTimeInterface
+    {
+        return $this->publishedAt;
+    }
+
+    /**
+     * @param \DateTimeInterface $publishedAt
+     */
+    public function setPublishedAt(\DateTimeInterface $publishedAt): void
+    {
+        $this->publishedAt = $publishedAt;
+    }
+
+    /**
+     * @return User
+     */
+    public function getAuthor(): User
+    {
+        return $this->author;
+    }
+
+    /**
+     * @param User $author
+     */
+    public function setAuthor(User $author): void
+    {
+        $this->author = $author;
+    }
+
+    /**
+     * @return User[]|Collection
+     */
+    public function getlikedBy(): Collection
+    {
+        return $this->likedBy;
+    }
+
+    /**
+     * @param User $user
+     */
+    public function likedBy(User $user): void
+    {
+        if($this->likedBy->contains($user)){
+            return;
+        }
+
+        $this->likedBy->add($user);
+    }
+
+    /**
+     * @param User $user
+     */
+    public function dislikedBy(User $user): void
+    {
+        if(!$this->likedBy->contains($user)){
+            return;
+        }
+
+        $this->likedBy->removeElement($user);
+    }
+
+
+
+
+
+
+}
