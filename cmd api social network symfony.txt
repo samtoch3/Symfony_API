@@ -1,5 +1,5 @@
 for update symfony --> symfony self:update
-
+update --no-interaction --no-ansi
 
 symfony new api_social_network --> pour creer un projet symfony completement vide sans doctrine et tout le reste 
 
