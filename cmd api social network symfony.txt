@@ -1,0 +1,21 @@
+for update symfony --> symfony self:update
+
+
+symfony new api_social_network --> pour creer un projet symfony completement vide sans doctrine et tout le reste 
+
+composer req orm  --> pour installer les paquets requis d'orm
+
+php bin/console doctrine:database:create --> pour creer la bd
+php bin/console doctrine:schema:valid --> pour verifier si le mapping des entité est correct si on l'a fait sans doctrine
+php bin/console doctrine:schema:update --force  --> pour update la bd
+composer req --dev orm-fixtures --> pour generer des données fake de test
+composer req security --> pour avoir l'encodage des mdp
+
+php bin/console doctrine:fixtures:load -n
+
+php bin/console doctrine:database:drop --if-exists -f
+
+creer le script "prepare" dans le composer.json comprenant tout les requete de mise à jour de la bd (suppression, recréation, update et fixtures:load) et executer composer prepare dans le terminal
+
+composer req annotations
+composer req serializer 
