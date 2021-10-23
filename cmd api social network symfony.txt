@@ -1,5 +1,5 @@
 for update symfony --> symfony self:update
-
+update --no-interaction --no-ansi
 
 symfony new api_social_network --> pour creer un projet symfony completement vide sans doctrine et tout le reste 
 
@@ -18,4 +18,4 @@ php bin/console doctrine:database:drop --if-exists -f
 creer le script "prepare" dans le composer.json comprenant tout les requete de mise à jour de la bd (suppression, recréation, update et fixtures:load) et executer composer prepare dans le terminal
 
 composer req annotations
-composer req serializer 
+composer req serializer
