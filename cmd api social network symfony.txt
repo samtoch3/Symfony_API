@@ -19,3 +19,6 @@ creer le script "prepare" dans le composer.json comprenant tout les requete de m
 
 composer req annotations
 composer req serializer
+
+php bin//console c:c --> cache clear
+php bin/console debug:container nomClasse
