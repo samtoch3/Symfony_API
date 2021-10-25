@@ -105,10 +105,10 @@ final class Versions
   'webmozart/assert' => '1.10.0@6964c76c7804814a842473e0c8fd15bab0f18e25',
   'doctrine/data-fixtures' => '1.5.1@f18adf13f6c81c67a88360dca359ad474523f8e3',
   'doctrine/doctrine-fixtures-bundle' => '3.4.0@870189619a7770f468ffb0b80925302e065a3b34',
-  'symfony/polyfill-ctype' => '*@ced79ce2b0c86c183b7698f6077a695e34dcfe14',
-  'symfony/polyfill-iconv' => '*@ced79ce2b0c86c183b7698f6077a695e34dcfe14',
-  'symfony/polyfill-php72' => '*@ced79ce2b0c86c183b7698f6077a695e34dcfe14',
-  '__root__' => 'dev-master@ced79ce2b0c86c183b7698f6077a695e34dcfe14',
+  'symfony/polyfill-ctype' => '*@d6a9f763b6b8c6f7ed5d6086dde4d2472068d720',
+  'symfony/polyfill-iconv' => '*@d6a9f763b6b8c6f7ed5d6086dde4d2472068d720',
+  'symfony/polyfill-php72' => '*@d6a9f763b6b8c6f7ed5d6086dde4d2472068d720',
+  '__root__' => 'dev-master@d6a9f763b6b8c6f7ed5d6086dde4d2472068d720',
 );
 
     private function __construct()

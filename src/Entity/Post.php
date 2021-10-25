@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * Class Post
  * @package App\Entity
@@ -17,18 +18,21 @@ class Post
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
+     * @Groups({"get"})
      */
     private ?int $id;
 
     /**
      * @var string
      * @ORM\Column(type="text")
+     * @Groups({"get"})
      */
     private string $content;
 
     /**
      * @var \DateTimeInterface
      * @ORM\Column(type="datetime_immutable")
+     * @Groups({"get"})
      */
     private \DateTimeInterface $publishedAt;
 
